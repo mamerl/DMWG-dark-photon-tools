@@ -1,0 +1,4 @@
+[submodule "DMWG-couplingScan-code"]
+	path = DMWG-couplingScan-code
+	url = git@github.com:mamerl/DMWG-couplingScan-code.git
+	branch = run3-update
