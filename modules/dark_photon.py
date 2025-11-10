@@ -113,16 +113,16 @@ def main():
     gdm = args.gdm
 
     # compute the dark photon limits
-    dp_epsilon_limit = compute_cms_yield_parameter(mmed, mdm, gq_limit, gdm=gdm)
+    dp_limit = compute_cms_yield_parameter(mmed, mdm, gq_limit, gdm=gdm)
 
     # package the output
     output_data = dict()
     output_data["input"] = str(args.inputfile)
     output_data["mmed"] = mmed.tolist()
-    output_data["epsilon_limit"] = dp_epsilon_limit.tolist()
+    output_data["epsilon_limit"] = dp_limit.tolist()
 
     # make a quick plot
-    quick_plot(mmed, dp_epsilon_limit, args.outputfile.with_suffix(".pdf").as_posix())
+    quick_plot(mmed, dp_limit, args.outputfile.with_suffix(".pdf").as_posix())
 
     # write the output file
     with open(args.outputfile, "w") as output_file:
