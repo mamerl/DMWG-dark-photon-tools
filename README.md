@@ -1,4 +1,4 @@
-# DMWG Run 3 interpretations
+# Prototypes of DMWG Run 3 interpretations
 
 This repository contains a collection of code and setup instructions for different packages. The code is heavily based on interpretations for Run 3 ATLAS dijet searches, but it could be adapted for other signatures (e.g. mono-X, etc.).
 
