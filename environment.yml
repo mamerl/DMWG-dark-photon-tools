@@ -12,3 +12,4 @@ dependencies:
   - matplotlib
   - mplhep
   - uproot
+  - shapely
