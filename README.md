@@ -8,9 +8,11 @@ For steps in the interpretation that rely on re-scaling DMsimp_s_spin1 model lim
 
 ## Installation and setup
 
-To run the code a basic conda installation is needed. **First make sure you have conda installed on your laptop or cluster.` If you cannot install conda on a cluster but you have sufficient disk space miniconda is another option: https://www.anaconda.com/docs/getting-started/miniconda/main.
+To run the code a basic conda installation is needed. 
 
-The environment (packages, etc.) needed are outlined in `environment.yml`, including LHAPDF, which is required by DMWG-couplingScan-code. For first time use, run `source install.sh` to setup an environment (it will be called `dmwg-coupling-scan`). For future work just run `source setup.sh` to setup the environment again.
+> First make sure you have conda installed on your laptop or cluster. If you cannot install conda on a cluster but you have sufficient disk space, miniconda is another option: https://www.anaconda.com/docs/getting-started/miniconda/main.
+
+The environment (packages, etc.) needed are outlined in `environment.yml`, including LHAPDF, which is required by `DMWG-couplingScan-code`. For first time use, run `source install.sh` to setup an environment (it will be called `dmwg-coupling-scan`). For future work just run `source setup.sh` to setup the environment again.
 
 More information on LHAPDF installation is included in the DMWG-couplingScan-code repository in case you prefer another installation procedure.
 
@@ -36,3 +38,7 @@ The example can be run with:
 python modules/dark_photon.py -i inputs/example_input.json -o outputs/example_output.json -gdm 1
 ```
 and you can find the output in `outputs/example_output.*` consisting of the json output and a plot of the resulting limit.
+
+## Credits
+
+This code was developed by Maximilian Amerl, following instructions by Philip C. Harris in [this talk]([https://www.arxiv.org/abs/2206.03456](https://indico.cern.ch/event/1085710/contributions/4564882/attachments/2333706/3977472/PCH_PBC_24_10.pdf)) and it was validated against the results obtained by Joshua Greaves [see Master's thesis](https://lup.lub.lu.se/student-papers/search/publication/9091336).
