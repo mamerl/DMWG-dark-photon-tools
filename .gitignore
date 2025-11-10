@@ -1,0 +1,167 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.pytype/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# IPython
+profile_default/
+ipython_config.py
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# ROOT (CERN)
+*.root
+*.d
+*.pcm
+*.so
+*.dylib
+
+# MadGraph / MadAnalysis
+Events/
+HTML/
+Cards/
+crossx.html
+index.html
+RunWeb*
+run_*.log
+*.lhe
+*.hep
+*.hepmc
+*.dat
+*.top
+*.tar.gz
+
+# Delphes
+*.root
+*.lhe.gz
+
+# SLHA files (sometimes temporary)
+# *.slha
+
+# Fortran
+*.o
+*.mod
+*.a
+
+# C/C++
+*.out
+*.exe
+*.obj
+*.a
+*.so
+*.dylib
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+*.bak
+*.backup
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+
+# Large data files (uncomment if needed)
+# *.csv
+# *.h5
+# *.hdf5
+
+# Sensitive information
+secrets.txt
+credentials.json
+*.key
+*.pem
+
+# Build artifacts
+*.la
+*.lo
+autom4te.cache/
+config.status
+config.log
+Makefile
+Makefile.in
+configure
+
+# Package manager
+node_modules/
+package-lock.json
+yarn.lock
