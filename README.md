@@ -41,4 +41,4 @@ and you can find the output in `outputs/example_output.*` consisting of the json
 
 ## Credits
 
-This code was developed by Maximilian Amerl, following instructions by Philip C. Harris in [this talk]([https://www.arxiv.org/abs/2206.03456](https://indico.cern.ch/event/1085710/contributions/4564882/attachments/2333706/3977472/PCH_PBC_24_10.pdf)) and it was validated against the results obtained by Joshua Greaves [see Master's thesis](https://lup.lub.lu.se/student-papers/search/publication/9091336).
+This code was developed by Maximilian Amerl, following instructions by Philip C. Harris in [this talk](https://indico.cern.ch/event/1085710/contributions/4564882/attachments/2333706/3977472/PCH_PBC_24_10.pdf) and [this talk](https://indico.cern.ch/event/1554954/contributions/6581184/attachments/3095485/5483694/PCH_Interpret_DM_30_6.pdf) and it was validated against the results obtained by Joshua Greaves [see Master's thesis](https://lup.lub.lu.se/student-papers/search/publication/9091336).
