@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "DMWG Code Instructions"
+abstract: "Documentation for the setup and configuration of DMWG and other tools useful for reinterpretations of LHC collider searches and dark matter phenomenology studies."
+authors:
+  - name: "DMWG Collaboration"
+    alias: "Dark Matter Working Group"
+repository-code: "https://github.com/mamerl/DMWG-code-instructions"
+url: "https://github.com/mamerl/DMWG-code-instructions"
+license: GPL-3.0
+keywords:
+  - "dark matter"
+  - "collider physics"
+  - "LHC"
+  - "reinterpretation"
+  - "phenomenology"
+  - "high energy physics"
+  - "MadDM"
+  - "MadGraph"
+  - "DMWG"
+  - "BSM physics"
+version: 1.0.0
+date-released: "2025-11-10"
+identifiers:
+  - type: url
+    value: "https://github.com/mamerl/DMWG-code-instructions"
+    description: "GitHub repository"
+references:
+  - type: article
+    title: "Direct Detection of Dark Matter with MadDM v.2.0"
+    authors:
+      - family-names: Backovic
+        given-names: Mihailo
+      - family-names: Martini
+        given-names: Antony
+      - family-names: Mattelaer
+        given-names: Olivier
+      - family-names: Kong
+        given-names: Kyoungchul
+      - family-names: Mohlabeng
+        given-names: Gopolang
+    journal: "Physics of the Dark Universe"
+    volume: "9-10"
+    year: 2015
+    pages: "37-50"
+    doi: "10.1016/j.dark.2015.09.001"
+  - type: generic
+    title: "LHC Dark Matter Working Group"
+    url: "https://lpcc.web.cern.ch/content/lhc-dm-wg"

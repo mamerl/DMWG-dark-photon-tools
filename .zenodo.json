@@ -1,0 +1,54 @@
+{
+  "title": "DMWG Code Instructions",
+  "description": "Comprehensive documentation, setup instructions, and configuration files for Dark Matter Working Group (DMWG) tools and related software used for reinterpretation of LHC collider searches and dark matter phenomenology studies.",
+  "creators": [
+    {
+      "name": "DMWG Collaboration",
+      "affiliation": "LHC Dark Matter Working Group"
+    }
+  ],
+  "access_right": "open",
+  "license": "GPL-3.0",
+  "upload_type": "software",
+  "keywords": [
+    "dark matter",
+    "collider physics",
+    "LHC",
+    "ATLAS",
+    "CMS",
+    "reinterpretation",
+    "phenomenology",
+    "high energy physics",
+    "particle physics",
+    "MadDM",
+    "MadGraph",
+    "DMWG",
+    "BSM physics",
+    "beyond standard model",
+    "MadAnalysis5",
+    "CheckMATE",
+    "SModelS",
+    "micrOMEGAs"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isDocumentedBy",
+      "identifier": "https://lpcc.web.cern.ch/content/lhc-dm-wg",
+      "resource_type": "other"
+    },
+    {
+      "relation": "cites",
+      "identifier": "10.1016/j.dark.2015.09.001",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "zenodo"
+    }
+  ],
+  "grants": [],
+  "language": "eng",
+  "version": "1.0.0"
+}

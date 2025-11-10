@@ -1,0 +1,146 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "DMWG Code Instructions",
+  "description": "Comprehensive documentation, setup instructions, and configuration files for Dark Matter Working Group (DMWG) tools and related software used for reinterpretation of LHC collider searches and dark matter phenomenology studies.",
+  "identifier": "https://github.com/mamerl/DMWG-code-instructions",
+  "codeRepository": "https://github.com/mamerl/DMWG-code-instructions",
+  "license": "https://spdx.org/licenses/GPL-3.0",
+  "version": "1.0.0",
+  "author": [
+    {
+      "@type": "Organization",
+      "name": "DMWG Collaboration",
+      "url": "https://lpcc.web.cern.ch/content/lhc-dm-wg"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Organization",
+      "name": "DMWG Collaboration"
+    }
+  ],
+  "contributor": [],
+  "dateCreated": "2025-11-10",
+  "dateModified": "2025-11-10",
+  "datePublished": "2025-11-10",
+  "programmingLanguage": [
+    "Markdown",
+    "Python",
+    "Shell"
+  ],
+  "runtimePlatform": [
+    "Linux",
+    "macOS"
+  ],
+  "operatingSystem": [
+    "Linux",
+    "macOS"
+  ],
+  "softwareRequirements": [
+    "Python 3.7+",
+    "Git",
+    "GCC/Gfortran"
+  ],
+  "keywords": [
+    "dark matter",
+    "collider physics",
+    "LHC",
+    "ATLAS",
+    "CMS",
+    "reinterpretation",
+    "phenomenology",
+    "high energy physics",
+    "particle physics",
+    "MadDM",
+    "MadGraph",
+    "MadAnalysis5",
+    "DMWG",
+    "BSM physics",
+    "beyond standard model",
+    "CheckMATE",
+    "SModelS",
+    "micrOMEGAs",
+    "Delphes",
+    "Pythia",
+    "Herwig"
+  ],
+  "applicationCategory": "Science",
+  "applicationSubCategory": [
+    "High Energy Physics",
+    "Particle Physics",
+    "Dark Matter Physics"
+  ],
+  "isPartOf": {
+    "@type": "Organization",
+    "name": "LHC Dark Matter Working Group",
+    "url": "https://lpcc.web.cern.ch/content/lhc-dm-wg"
+  },
+  "citation": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Direct Detection of Dark Matter with MadDM v.2.0",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Mihailo",
+          "familyName": "Backovic"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Antony",
+          "familyName": "Martini"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Olivier",
+          "familyName": "Mattelaer"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Kyoungchul",
+          "familyName": "Kong"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Gopolang",
+          "familyName": "Mohlabeng"
+        }
+      ],
+      "datePublished": "2015",
+      "identifier": "https://doi.org/10.1016/j.dark.2015.09.001"
+    }
+  ],
+  "referencePublication": [
+    {
+      "@type": "WebPage",
+      "name": "LHC Dark Matter Working Group",
+      "url": "https://lpcc.web.cern.ch/content/lhc-dm-wg"
+    },
+    {
+      "@type": "WebPage",
+      "name": "LHC Reinterpretation Forum",
+      "url": "https://twiki.cern.ch/twiki/bin/view/LHCPhysics/InterpretingLHCresults"
+    }
+  ],
+  "readme": "https://github.com/mamerl/DMWG-code-instructions/blob/main/README.md",
+  "issueTracker": "https://github.com/mamerl/DMWG-code-instructions/issues",
+  "developmentStatus": "active",
+  "funding": "",
+  "contIntegration": "https://github.com/mamerl/DMWG-code-instructions/actions",
+  "softwareHelp": [
+    {
+      "@type": "WebPage",
+      "name": "Documentation",
+      "url": "https://github.com/mamerl/DMWG-code-instructions"
+    }
+  ],
+  "targetProduct": {
+    "@type": "SoftwareApplication",
+    "name": "Documentation and Setup Instructions",
+    "operatingSystem": [
+      "Linux",
+      "macOS"
+    ]
+  }
+}
