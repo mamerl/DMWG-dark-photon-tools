@@ -1,0 +1,14 @@
+name: dmwg-coupling-scan
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - root
+  - lhapdf
+  - pybind11
+  - numpy
+  - scipy
+  - matplotlib
+  - mplhep
+  - uproot
