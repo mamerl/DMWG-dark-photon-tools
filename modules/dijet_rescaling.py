@@ -4,13 +4,14 @@ Script to rescale dijet coupling limits from one simplified model
 benchmark to another using the DMWG-couplingScan-code.
 
 """
-
+import sys
 import matplotlib.pyplot as plt
 import mplhep as hep
 import argparse
 import json
 import numpy as np
 import pathlib
+from modules.benchmarks import benchmarks
 from modules.exclusion_helpers import CouplingLimitCalculator
 from modules.logger_setup import logger
 from couplingscan.limitparsers import CouplingLimit_Dijet
@@ -158,16 +159,29 @@ def get_coupling_limit_exclusion_depth(
 
 def compute_rescaled_exclusion(validation_plot_file:pathlib.Path, mmed:np.ndarray, gq:np.ndarray, exclusion_depths:np.ndarray)->tuple[list, list]:
     """
-    Extract an exclusion contour in the mmed-gq plane corresponding to the contours
-    with exclusion_depths == 1.
+    Extract closed exclusion contours at exclusion_depth == 1 from the provided
+    (mmed, gq) grid and exclusion depth values.
 
-    Args:
-        mmed (np.ndarray): mediator masses array
-        gq (np.ndarray): quark coupling array
-        exclusion_depths (np.ndarray): exclusion depths array
+    Parameters
+    ----------
+    validation_plot_file : pathlib.Path or str
+        Path to the validation plot file used for contour extraction (passed to
+        the contour extraction routine for plotting/validation).
+    mmed : np.ndarray
+        1D array of mediator masses (length M).
+    gq : np.ndarray
+        1D array of quark couplings (length N).
+    exclusion_depths : np.ndarray
+        Array of exclusion depths evaluated on the (mmed, gq) grid. Expected
+        shape is either (M, N) or flattened to length M*N.
 
-    Returns:
-        tuple[list, list]: tuple of lists of arrays corresponding to closed exclusion contours.
+    Returns
+    -------
+    tuple[list, list]
+        Tuple (exclusion_x, exclusion_y) where each element is a list of 1D
+        numpy arrays. Each pair exclusion_x[i], exclusion_y[i] gives the
+        coordinates (mmed, gq) of a single closed exclusion contour at
+        exclusion_depth == 1.
     """
 
     # define the coupling limit calculator object
@@ -224,10 +238,11 @@ def get_args():
         help="Path to save the output plot with rescaled limits."
     )
     parser.add_argument(
-        "--model-file",
-        type=pathlib.Path,
+        "--benchmark",
+        type=str,
         required=True,
-        help="Path to the model file defining the target simplified model."
+        help="Name of the benchmark defining the target simplified model.",
+        choices=list(benchmarks.keys()),
     )
 
     parser.add_argument(
@@ -248,7 +263,8 @@ def main():
     for file in [args.source_limit, args.source_info, args.validation_plots, args.model_file]:
         if not file.exists():
             logger.error("Input file %s does not exist!", str(file))
-
+            return 1
+        
     # load the source limit data
     src_limit = dict()
     with open(args.source_limit, "r") as f:
@@ -269,9 +285,64 @@ def main():
         model_info = json.load(f)
     
     # setup arguments for exclusion depth calculation
+    try:
+        gdm_source = src_info["gdm"]
+        gl_source = src_info["gl"]
+        coupling_source = src_info["coupling"]
+        pdfset = src_info["pdfset"]
+        ecm_tev = src_info["ecm_sqrt"] / 1e3 # convert to TeV
+    except KeyError as e:
+        logger.error("Missing key %s in source model info file %s", str(e), str(args.source_info))
+        return 1
+    
+    # get the target benchmark parameters
+    benchmark_mdm_fraction = benchmarks[args.benchmark]["parameters"]["mdm_fraction"]
+    mdm_model = benchmark_mdm_fraction * mmed
+    coupling_model = benchmarks[args.benchmark]["parameters"]["coupling"]
+    gdm_model = benchmarks[args.benchmark]["parameters"]["gdm"]
+    gl_model = benchmarks[args.benchmark]["parameters"]["gl"]
 
+    # calculate the exclusion depths in the target model
+    exclusion_depths = get_coupling_limit_exclusion_depth(
+        mmed=mmed,
+        mdm_model=mdm_model,
+        mdm_source=mdm_source,
+        gq_limit=gq_limit,
+        coupling_model=coupling_model,
+        coupling_source=coupling_source,
+        gdm_model=gdm_model,
+        gl_model=gl_model,
+        gdm_source=gdm_source,
+        gl_source=gl_source,
+        ecm_tev=ecm_tev,
+        pdfset=pdfset
+    )
 
-    return
+    # extract the rescaled exclusion contours
+    exclusion_x, exclusion_y = compute_rescaled_exclusion(
+        validation_plot_file=args.validation_plots,
+        mmed=mmed,
+        gq=GQ_SCAN_VALUES,
+        exclusion_depths=exclusion_depths.reshape((len(mmed), len(GQ_SCAN_VALUES)))
+    )
+
+    # plot the rescaled limits
+    plot_rescaled_limit(
+        args.output_file.stem + "_rescaled_limits.pdf",
+        exclusion_x,
+        exclusion_y,
+        args.benchmark,
+    )
+
+    # save the rescaled exclusion contours to a json file
+    output_data = dict()
+    output_data["contour_x"] = [exclusion_xi.tolist() for exclusion_xi in exclusion_x]
+    output_data["contour_y"] = [exclusion_yi.tolist() for exclusion_yi in exclusion_y]
+    output_data["benchmark"] = args.benchmark
+    with open(args.output_file, "w") as f:
+        json.dump(output_data, f, indent=4)
+
+    return 0
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
