@@ -289,9 +289,9 @@ def get_args():
     parser.add_argument(
         "--benchmark",
         type=str,
-        required=True,
         help="Name of the benchmark defining the target simplified model.",
         choices=list(benchmarks.keys()),
+        default="minimal_dark_photon"
     )
 
     parser.add_argument(
@@ -386,8 +386,9 @@ def main():
 
     # save the rescaled exclusion contours to a json file
     output_data = dict()
-    output_data["contour_x"] = [exclusion_xi.tolist() for exclusion_xi in exclusion_x]
-    output_data["contour_y"] = [exclusion_yi.tolist() for exclusion_yi in exclusion_y]
+    output_data["mmed_contours"] = [exclusion_xi.tolist() for exclusion_xi in exclusion_x]
+    output_data["gq_contours"] = [exclusion_yi.tolist() for exclusion_yi in exclusion_y]
+
     output_data["benchmark"] = args.benchmark
     with open(args.output_file, "w") as f:
         json.dump(output_data, f, indent=4)
