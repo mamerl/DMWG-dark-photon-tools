@@ -21,6 +21,7 @@ converted into dark photon model parameters.
 
 benchmarks = {
     "minimal_dark_photon": {
+        "name": "HAHM Dark Photon",
         "description": "Minimal dark photon model with the DM mass set to a fixed ratio of the mediator (dark photon) mass",
         "parameters": {
             "gdm": 1.0,
@@ -28,5 +29,9 @@ benchmarks = {
             "mdm_fraction": 1./3., # mdm = mdm_fraction * mmed
             "coupling": "vector",
         },
+        "plot_parameters": {
+            "mdm_label": r"$m_{\mathrm{DM}} = m_{Z'}/3$",
+            "coupling_label": r"$g_{\mathrm{DM}} = 1.0$, $g_{\ell} = 0.0$",
+        }
     }
 }

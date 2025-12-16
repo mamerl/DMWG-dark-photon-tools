@@ -213,11 +213,11 @@ class ExclusionLimitCalculator(ABC):
         # create instance with numpy arrays and call compute_exclusion()
     """
 
-    mmed: np.ndarray = None
-    mdm: np.ndarray = None
-    gq: np.ndarray = None
-    gdm: np.ndarray = None
-    gl: np.ndarray = None
+    mmed: np.ndarray
+    mdm: np.ndarray
+    gq: np.ndarray
+    gdm: np.ndarray
+    gl: np.ndarray
     exclusion_depth: np.ndarray
 
     def __post_init__(self):
@@ -262,7 +262,7 @@ class CouplingLimitCalculator(ExclusionLimitCalculator):
         equals a chosen "exclusion_point" and produce a validation plot that
         shows the 2D exclusion depth map with the computed contour overlaid.
     - The method compute_exclusion both returns the contour coordinates and
-        writes a PNG/SVG/etc. figure to disk.
+        writes a validation plot to disk.
     Expected attributes on the instance
     - exclusion_depth: array-like, per-sample exclusion depth (float).
     - mmed, mdm: array-like floats for mediator mass and dark-matter mass,
@@ -371,6 +371,10 @@ class CouplingLimitCalculator(ExclusionLimitCalculator):
             y_variable, 
             self.exclusion_depth, 
             exclusion_point=exclusion_point,
+            # use open contours for coupling vs. mass limits
+            # since we probably want limit lines rather than
+            # filled regions
+            closed_contours=False, 
         )
 
         # 2D plot showing exclusion depth as a function 
@@ -389,6 +393,16 @@ class CouplingLimitCalculator(ExclusionLimitCalculator):
             colors=level_colors,
             norm=norm,
         )
+        # this fills in gaps between levels with contour lines
+        ax.tricontour(
+            x_variable, 
+            y_variable, 
+            self.exclusion_depth, 
+            levels=levels, 
+            colors=level_colors, 
+            linewidths=0.5,
+            norm=norm,
+        )
         cbar = fig.colorbar(cp, ticks=np.linspace(0, 10, 11), boundaries=levels, spacing="proportional", pad=0.02)
         cbar.set_label(r'Exclusion depth $d_{\mathrm{ex}}$')
         cbar.set_ticklabels([str(i) for i in range(0, 11)])
@@ -396,15 +410,16 @@ class CouplingLimitCalculator(ExclusionLimitCalculator):
         ax.set_ylabel(y_label)
         
         # plot the new exclusion contour
-        ax.plot(
-            exclusion_x, 
-            exclusion_y, 
-            color="red", 
-            linestyle="--",
-            marker="o",
-            markersize=7,
-            linewidth=1.75,
-        )
+        for cx, xy in zip(exclusion_x, exclusion_y):
+            ax.plot(
+                cx, 
+                xy, 
+                color="red", 
+                linestyle="--",
+                # marker="o",
+                # markersize=7,
+                linewidth=1.75,
+            )
 
         plt.savefig(validation_plot_file, bbox_inches="tight")
         plt.close(fig)

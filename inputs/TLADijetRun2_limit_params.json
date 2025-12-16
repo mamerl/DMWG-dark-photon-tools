@@ -3,6 +3,7 @@
     "gdm": 1.0,
     "gl": 0.0,
     "mdm": 10000.0,
+    "mdm_is_fraction": false,
     "coupling": "axial",
     "ecm_sqrt": 13000.0,
     "pdfset": "NNPDF31_nnlo_as_0118"

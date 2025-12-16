@@ -1,2 +1,4 @@
 inputs/dark_photon_vector_run2_dijetTLA_J100_obs_exclusion.json
 inputs/prepare_input.py
+**/__pycache__/
+outputs/
