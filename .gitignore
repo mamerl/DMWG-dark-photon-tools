@@ -1,5 +1,5 @@
 **/__pycache__/
-outputs/
+outputs/*
 !outputs/*summary_plot.pdf
 !outputs/TLADijetRun2*
 plotting/.ipynb_checkpoints/
