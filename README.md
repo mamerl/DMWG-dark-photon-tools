@@ -54,7 +54,7 @@ The `modules/dark_photon.py` script takes the output from the previous step and 
 
 Example outputs are provided in `outputs/TLADijetRun2_*_darkPhoton.json`.
 
-### Plotting
+### Plotting
 
 The `plotting` directory stores the plotting code used to create summary plots stored in `outputs/*_summary_plot.pdf`. At present, this consists of a single notebook that plots the results of the ATLAS Run 2 Trigger-Level Analysis dijet resonance search.
 
