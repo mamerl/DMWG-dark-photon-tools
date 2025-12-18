@@ -1,3 +1,7 @@
 # Plotting code for interpretations
 
-WIP: this directory will eventually contain notebooks used to make summary plots for the limits
+This directory holds plotting code and notebooks used to produce summary plots for the interpretations.
+
+## Contents
+
+- `dark_photon_summary_plots.ipynb`: initial implementation of dark photon interpretation summary plots for Run 2 TLA dijet resonance search results.
