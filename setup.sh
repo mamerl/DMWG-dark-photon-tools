@@ -8,3 +8,4 @@ export PYTHONPATH=$PYTHONPATH:$(pwd)
 DMWG_COUPLING_SCAN_DIR=$(pwd)/DMWG-couplingScan-code
 cd $DMWG_COUPLING_SCAN_DIR
 source setup.sh # this will setup additional LHAPDF environment variables
+cd ..
