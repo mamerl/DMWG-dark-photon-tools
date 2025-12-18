@@ -3,3 +3,5 @@ outputs/*
 !outputs/*summary_plot.pdf
 !outputs/TLADijetRun2*
 plotting/.ipynb_checkpoints/
+**/.DS_Store
+.DS_Store
