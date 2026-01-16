@@ -2,3 +2,6 @@
 	path = DMWG-couplingScan-code
 	url = git@github.com:mamerl/DMWG-couplingScan-code.git
 	branch = run3-update
+[submodule "dark-photon-event-gen"]
+	path = dark-photon-event-gen
+	url = git@github.com:mamerl/dark-photon-event-gen.git
