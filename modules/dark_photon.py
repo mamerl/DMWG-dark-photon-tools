@@ -25,13 +25,14 @@ ALPHA_FINE_STRUCTURE = 1/137.035999084 # dimensionless
 # TODO revise this calculation after feedback on the derivation of the formula
 def calculate_epsilon(mmed:np.ndarray, gq:np.ndarray)->np.ndarray:
     avg_Q2 = 1./3. # approximate
-    avg_Y2 = 13./18. # approximate 
+    # avg_Y2 = 13./18. # approximate, from CMS dark sectors paper
+    avg_Y2 = 13./72. # revised approximation, based on Q = T3 + Y, not Q = T3 + Y/2
 
     delta_z = (mmed / Z_MASS)**2
     cos2_theta_w = 1. - SIN2_THETA_W
     electronic_charge = np.sqrt(4. * np.pi * ALPHA_FINE_STRUCTURE)
 
-    prefactor =  1. / (electronic_charge * (1. / cos2_theta_w) * (1. / np.abs(1. - delta_z)) * ((np.sqrt(avg_Q2) * cos2_theta_w) + (delta_z * np.sqrt(avg_Y2))))
+    prefactor =  1. / (electronic_charge * (1. / cos2_theta_w) * (1. / np.abs(1. - delta_z)) * ((np.sqrt(avg_Q2) * cos2_theta_w) - (delta_z * np.sqrt(avg_Y2))))
     epsilon = gq * prefactor
     return epsilon
 
